@@ -9,8 +9,87 @@ body {
 
 body > div {
   margin: 1em auto;
-  max-width: 400px;
+  max-width: 450px;
   border: 0px dashed green;
+}
+
+.carousel {
+  position: relative;
+  width: 300px;
+  max-width: 90vw;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 350px;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  z-index: 10;
+}
+
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+
+.prev { left: 12px; }
+.next { right: 12px; }
+
+
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+
+
+.dot.active {
+  background: white;
 }
 
 </style>
@@ -44,37 +123,79 @@ body > div {
 </div>
 
 <div>
-  <div>Начало события: <img alt="Картинка библиотекаря"/></div>
-  <div>
-    <span>08.06.2026</span>
-    <span>ПОНЕДЕЛЬНИК</span>
-    <span>15:00</span>
+  <div style="display: flex; column-gap: 1em;">
+    <div style="width: 50%; text-align: right;">
+      Начало события: <img alt="Картинка библиотекаря" src="https://psv4.userapi.com/s/v1/d2/DaGC1XmkowgOxB9Zep5jMW8j1zIV6SoFfVuPfdtQK4Bq7-AOCjw1gCxuU_KQAqMyeM0l6k5oqY8kb5lZKIdL-iF4B-ATfgU9HkKgn8lhPWlDxjxlY_A9mihXseDYZ6e9hkICgmTMyMhA/nerd-emoji.gif" width="50%"/>
+    </div>
+    <div style="width: 50%;">
+      <span style="display: block;">08.06.2026</span>
+      <span style="display: block;">ПОНЕДЕЛЬНИК</span>
+      <span style="display: block;">15:00</span>
+    </div>
   </div>
 </div>
 
 <div>
-  <div>Место: Тула. с....</div>
-  <div>
-    <img alt="Радостная картинка"/>
-    <div>Приглашаем посетить родину Поли!</div>
+  <div style="display: flex; justify-content: center; column-gap: 1em;">
+    <div>Место:</div>
+    <div>Тула. с....</div>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <div style="flex: 2 1 0;">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A496cb51ef6dd9032698d1363b59d2c54490f77d13fd7995c36ad7bc7ccd6c943&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+    </div>
+    <div style="flex: 1 1 0;">
+      <img alt="Весёлая картинка"/>
+      Приглашаем посетить родину Поли!
+    </div>
   </div>
 </div>
 
 <div>
-  <span>Приходите нарядными!</span>
-  <span>И с хорошим настроением</span>
+  <span style="display: block;">Приходите нарядными!</span>
+  <span style="display: block;">И с хорошим настроением</span>
+  <span style="display: block;">&#9711;&#9711;&#9711;&#9711;&#9711;</span>
 </div>
 
 <div>
-  <div>
-    <span>Цветовая гамма праздника. Соблюдать не обязательно.</span>
-    <span>Так как площадка на природе - лучше взять комфортную обувь</span>
+  <div style="display: flex; align-items: center;">
+    <div style="flex: 2 1 0;">
+      <span style="display: block;">Цветовая гамма праздника. Соблюдать не обязательно.</span>
+      <span style="display: block;">Так как площадка на природе - лучше взять комфортную обувь</span>
+    </div>
+    <div style="flex: 1 1 0;">
+      <div class="carousel">
+        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn next">&#10095;</button>
+        <div class="carousel-dots"></div>
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img alt="Какая-то фотка 1"
+                src="https://sun9-34.userapi.com/s/v1/ig2/MlNKMl-IHiI06yI__XH66NRhSs5QqyCY-7hoOUZA9NC3eWX4a3Tefx6CSjXu9XzrWc5eyxu7x-lw8M6KA0iL18DG.jpg?quality=95&as=32x32,48x49,72x73,108x110,160x162,240x243,360x365,424x430&from=bu&cs=424x0"
+                />
+          </div>
+          <div class="carousel-slide">
+            <img alt="Какая-то фотка 2"
+                src="https://sun9-78.userapi.com/s/v1/ig2/eQnwvfyY34Hd07LGg8S_M_syeZs71cp1aBf-58RIiN_V3EL0yyXCcGsbYcJFVtR1SDPIBRFp7w9GmD6xULYGQYu7.jpg?quality=95&as=32x34,48x51,72x77,108x115,160x171,240x256,360x384,405x432&from=bu&cs=405x0"
+                />
+          </div>
+          <div class="carousel-slide">
+              <img alt="Какая-то фотка 3"
+                  src="https://sun9-70.userapi.com/s/v1/ig2/XDzAA5cgVdTemEi_ZsM3Kb85UFyh5cs54zUt5YA8lNrFpSyCfK_w-g1dFMiyhjpk5Njk_dWQWoG8bX9ImDJx8q21.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x241,360x361,429x430&from=bu&cs=429x0"
+                  />
+          </div>
+          <div class="carousel-slide">
+              <img alt="Какая-то фотка 4"
+                  src="https://sun9-20.userapi.com/s/v1/ig2/F-0uWxFWsI6MaskfrsNn8QxJx9c8i24sqq5HwVU5NZ3xrbsK_Vkfqx3ChnZpPc4q38qA7XVR-WPAwHDjeh2et7x_.jpg?quality=95&as=32x33,48x50,72x75,108x113,160x167,240x251,360x377,407x426&from=bu&cs=407x0"
+                  />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <img alt="Какая-то фотка 1"/>
-    <img alt="Какая-то фотка 2"/>
-    <img alt="Какая-то фотка 3"/>
-  </div>
+</div>
+
+<div>
 </div>
 
 <div>
@@ -85,5 +206,48 @@ body > div {
   До встречи в июне
 </div>
 
+<script>
+
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    let index = 0;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => {
+        index = i;
+        updateCarousel();
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      updateCarousel();
+    });
+
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      updateCarousel();
+    }, 4000);
+
+</script>
 </body>
 </html>
